@@ -6,7 +6,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
 import joblib
 
-# ---------- 2. Generate Synthetic Data ----------
+#Generating a data
 def generate_dataset(n=500):
     np.random.seed(42)
     df = pd.DataFrame({
@@ -25,7 +25,7 @@ def generate_dataset(n=500):
 
 df = generate_dataset()
 
-# ---------- 3. Preprocess Data ----------
+#Preprocess Data
 df.drop(columns=["student_id"], inplace=True)
 df["internet_access"] = df["internet_access"].map({"Yes": 1, "No": 0})
 df = pd.get_dummies(df, columns=["parental_education"], drop_first=True)
@@ -39,25 +39,25 @@ scaler = StandardScaler()
 X_train_scaled = scaler.fit_transform(X_train)
 X_test_scaled = scaler.transform(X_test)
 
-# ---------- 4. Train Random Forest Model ----------
+#Training the model
 model = RandomForestClassifier(n_estimators=100, random_state=42)
 model.fit(X_train_scaled, y_train)
 
 import joblib
 
-# Save the trained model
+# Saving the trained model
 joblib.dump(model, "rf_model.pkl")
 
-# Save the fitted scaler
+# Saving the fitted scaler
 joblib.dump(scaler, "scaler.pkl")
 
-# ---------- 5. Evaluate Model ----------
+# Evaluating the Model 
 y_pred = model.predict(X_test_scaled)
 print("Accuracy:", accuracy_score(y_test, y_pred))
 print("Confusion Matrix:\n", confusion_matrix(y_test, y_pred))
 print("Classification Report:\n", classification_report(y_test, y_pred))
 
-# ---------- 6. Save Model and Scaler ----------
+#Save Model and Scaler 
 joblib.dump(model, "rf_model.pkl")
 joblib.dump(scaler, "scaler.pkl")
 
