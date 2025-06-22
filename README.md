@@ -2,20 +2,20 @@
 
 A machine learning-powered web app to predict the risk of student dropout based on academic and behavioral data.
 
-## 🔍 Features
+## Features
 
 - Predict for individual students using a simple form
 - Bulk prediction for 100+ students via CSV upload
 - Download annotated prediction results
 
-## 🚀 Tech Stack
+## Tech Stack
 
 - Streamlit
 - Scikit-Learn
 - Pandas, NumPy
 - Trained using Random Forest
 
-## 🧠 Model Input Features
+## Model Input Features
 
 - Attendance %
 - Average Grade
@@ -24,7 +24,7 @@ A machine learning-powered web app to predict the risk of student dropout based 
 - Internet Access (Yes/No)
 - Parental Education (High School, Bachelor, Master, PhD)
 
-## 📦 Installation
+## Installation
 
 ```bash
 pip install -r requirements.txt
