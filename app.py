@@ -1,6 +1,3 @@
-# ========================================
-# Streamlit App: EduScope Student Dropout Predictor (Single & Bulk Prediction)
-# ========================================
 
 import streamlit as st
 import numpy as np
@@ -15,7 +12,7 @@ This tool predicts whether a student is likely to drop out based on their academ
 You can either enter a single student's data or upload a CSV file with multiple students.
 """)
 
-# Load model and scaler
+#Loading a model and scaler
 try:
     model = joblib.load("rf_model.pkl")
     scaler = joblib.load("scaler.pkl")
